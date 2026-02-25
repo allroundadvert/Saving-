@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Smart Savings for Christians</title>
+
+<style>
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #fdfaf5;
+}
+
+header {
+  background: linear-gradient(135deg,#145a2a,#1e7f3b);
+  color: gold;
+  text-align: center;
+  padding: 30px;
+}
+
+.container {
+  max-width: 700px;
+  margin: 20px auto;
+  background: #fff;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+h2 { color:#1e7f3b; }
+
+input, button {
+  width: 100%;
+  padding: 12px;
+  margin-top: 10px;
+  border-radius: 6px;
+  font-size: 15px;
+}
+
+button {
+  background: gold;
+  border: none;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.note {
+  background:#fff9e6;
+  padding: 12px;
+  border-left: 5px solid gold;
+  margin-top: 15px;
+}
+
+.dashboard {
+  background:#f9f9f9;
+  padding: 15px;
+  margin-top: 15px;
+  border-radius: 8px;
+}
+
+footer {
+  text-align:center;
+  padding:15px;
+  color:#555;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <h1>Smart Savings for Christians</h1>
+  <p>Daily Contribution: ₦200</p>
+</header>
+
+<div class="container">
+
+<div class="note">
+<strong>OPay Details</strong><br>
+Name: Judith Uyiosa<br>
+Account: 9042614892<br>
+Daily: ₦200
+</div>
+
+<h2>Register</h2>
+<input id="rname" placeholder="Full Name">
+<input id="rphone" placeholder="Phone">
+<input id="rpassword" placeholder="Password">
+<button onclick="register()">Register</button>
+
+<h2>Login</h2>
+<input id="lphone" placeholder="Phone">
+<input id="lpassword" placeholder="Password">
+<button onclick="login()">Login</button>
+
+<div id="dashboard" style="display:none">
+<h2>My Savings Dashboard</h2>
+<div class="dashboard">
+<p><strong>Name:</strong> <span id="dname"></span></p>
+<p><strong>Days Paid:</strong> <span id="ddays"></span></p>
+<p><strong>Total Saved:</strong> ₦<span id="dtotal"></span></p>
+<button onclick="payToday()">Mark Today Paid</button>
+</div>
+</div>
+
+</div>
+
+<footer>
+© 2026 Smart Savings for Christians
+</footer>
+
+<script>
+let users = JSON.parse(localStorage.getItem("ssc_users")) || [];
+let currentUser = null;
+
+function register() {
+  const name = rname.value;
+  const phone = rphone.value;
+  const password = rpassword.value;
+
+  if(!name || !phone || !password){
+    alert("Fill all fields");
+    return;
+  }
+
+  users.push({
+    name,
+    phone,
+    password,
+    days: 0,
+    total: 0
+  });
+
+  localStorage.setItem("ssc_users", JSON.stringify(users));
+  alert("Registration successful");
+}
+
+function login() {
+  const phone = lphone.value;
+  const password = lpassword.value;
+
+  const user = users.find(u => u.phone === phone && u.password === password);
+  if(!user){
+    alert("Invalid login");
+    return;
+  }
+
+  currentUser = user;
+  dashboard.style.display = "block";
+  updateDashboard();
+}
+
+function updateDashboard(){
+  dname.innerText = currentUser.name;
+  ddays.innerText = currentUser.days;
+  dtotal.innerText = currentUser.total;
+}
+
+function payToday(){
+  currentUser.days += 1;
+  currentUser.total += 200;
+  localStorage.setItem("ssc_users", JSON.stringify(users));
+  updateDashboard();
+  alert("Payment marked for today");
+}
+</script>
+
+</body>
+</html>
