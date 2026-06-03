@@ -3,65 +3,112 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Smart Savings for Christians</title>
+<title>Del Smiles Kitchen & Varieties</title>
 
 <style>
-body {
-  margin: 0;
-  font-family: Arial, sans-serif;
-  background: #fdfaf5;
+body{
+    margin:0;
+    font-family:Arial,sans-serif;
+    background:#111;
+    color:#fff;
 }
 
-header {
-  background: linear-gradient(135deg,#145a2a,#1e7f3b);
-  color: gold;
-  text-align: center;
-  padding: 30px;
+:root{
+    --gold:#d4af37;
 }
 
-.container {
-  max-width: 700px;
-  margin: 20px auto;
-  background: #fff;
-  padding: 20px;
-  border-radius: 10px;
+header{
+    background:linear-gradient(90deg,#111,var(--gold),#111);
+    text-align:center;
+    padding:25px 15px;
 }
 
-h2 { color:#1e7f3b; }
-
-input, button {
-  width: 100%;
-  padding: 12px;
-  margin-top: 10px;
-  border-radius: 6px;
-  font-size: 15px;
+header h1{
+    margin:0;
+    color:#111;
+    font-size:28px;
+    font-weight:900;
 }
 
-button {
-  background: gold;
-  border: none;
-  font-weight: bold;
-  cursor: pointer;
+header p{
+    margin:6px 0;
+    color:#111;
+    font-weight:bold;
 }
 
-.note {
-  background:#fff9e6;
-  padding: 12px;
-  border-left: 5px solid gold;
-  margin-top: 15px;
+.container{
+    width:95%;
+    max-width:1000px;
+    margin:25px auto;
+    background:#1a1a1a;
+    border:1px solid var(--gold);
+    border-radius:10px;
+    padding:20px;
 }
 
-.dashboard {
-  background:#f9f9f9;
-  padding: 15px;
-  margin-top: 15px;
-  border-radius: 8px;
+h2{
+    text-align:center;
+    color:var(--gold);
 }
 
-footer {
-  text-align:center;
-  padding:15px;
-  color:#555;
+table{
+    width:100%;
+    border-collapse:collapse;
+    margin-top:15px;
+}
+
+table,th,td{
+    border:1px solid var(--gold);
+}
+
+th{
+    background:var(--gold);
+    color:#111;
+    padding:12px;
+    text-align:left;
+}
+
+td{
+    padding:10px;
+    background:#111;
+}
+
+input, textarea{
+    padding:6px;
+    background:#000;
+    border:1px solid var(--gold);
+    color:#fff;
+    width:100%;
+    box-sizing:border-box;
+}
+
+textarea{
+    height:60px;
+    resize:none;
+}
+
+/* BUTTON */
+.buttons{
+    margin-top:20px;
+    text-align:center;
+}
+
+.whatsapp-btn{
+    display:inline-block;
+    background:#25d366;
+    color:#fff;
+    padding:12px 20px;
+    text-decoration:none;
+    border-radius:5px;
+    font-weight:bold;
+    border:none;
+    cursor:pointer;
+}
+
+footer{
+    text-align:center;
+    padding:20px;
+    color:#999;
 }
 </style>
 </head>
@@ -69,99 +116,155 @@ footer {
 <body>
 
 <header>
-  <h1>Smart Savings for Christians</h1>
-  <p>Daily Contribution: ₦200</p>
+<h1>DEL SMILES KITCHEN & VARIETIES</h1>
+<p>Specialized in all kinds of kitchen utensils and household items</p>
+<p><strong>Address:</strong> Igbagwe Road, Benin City, Edo State, Nigeria</p>
 </header>
 
 <div class="container">
 
-<div class="note">
-<strong>OPay Details</strong><br>
-Name: Judith Uyiosa<br>
-Account: 9042614892<br>
-Daily: ₦200
-</div>
+<h2>Order Form</h2>
 
-<h2>Register</h2>
-<input id="rname" placeholder="Full Name">
-<input id="rphone" placeholder="Phone">
-<input id="rpassword" placeholder="Password">
-<button onclick="register()">Register</button>
+<table>
 
-<h2>Login</h2>
-<input id="lphone" placeholder="Phone">
-<input id="lpassword" placeholder="Password">
-<button onclick="login()">Login</button>
+<tr>
+<th>Pots</th>
+<td>
+<input type="checkbox" class="item">
+<input type="number" class="qty" placeholder="Qty">
+<textarea class="spec" placeholder="Specifications (size, type, etc)"></textarea>
+</td>
+</tr>
 
-<div id="dashboard" style="display:none">
-<h2>My Savings Dashboard</h2>
-<div class="dashboard">
-<p><strong>Name:</strong> <span id="dname"></span></p>
-<p><strong>Days Paid:</strong> <span id="ddays"></span></p>
-<p><strong>Total Saved:</strong> ₦<span id="dtotal"></span></p>
-<button onclick="payToday()">Mark Today Paid</button>
-</div>
+<tr>
+<th>Blenders</th>
+<td>
+<input type="checkbox" class="item">
+<input type="number" class="qty" placeholder="Qty">
+<textarea class="spec"></textarea>
+</td>
+</tr>
+
+<tr>
+<th>Back to School</th>
+<td>
+<input type="checkbox" class="item">
+<input type="number" class="qty" placeholder="Qty">
+<textarea class="spec"></textarea>
+</td>
+</tr>
+
+<tr>
+<th>Luxury Bags</th>
+<td>
+<input type="checkbox" class="item">
+<input type="number" class="qty" placeholder="Qty">
+<textarea class="spec"></textarea>
+</td>
+</tr>
+
+<tr>
+<th>Shoes</th>
+<td>
+<input type="checkbox" class="item">
+<input type="number" class="qty" placeholder="Qty">
+<textarea class="spec"></textarea>
+</td>
+</tr>
+
+<tr>
+<th>Solar Fans</th>
+<td>
+<input type="checkbox" class="item">
+<input type="number" class="qty" placeholder="Qty">
+<textarea class="spec"></textarea>
+</td>
+</tr>
+
+<tr>
+<th>Nonstick Pots</th>
+<td>
+<input type="checkbox" class="item">
+<input type="number" class="qty" placeholder="Qty">
+<textarea class="spec"></textarea>
+</td>
+</tr>
+
+<tr>
+<th>Gold Spoon</th>
+<td>
+<input type="checkbox" class="item">
+<input type="number" class="qty" placeholder="Qty">
+<textarea class="spec"></textarea>
+</td>
+</tr>
+
+<tr>
+<th>Children Bag</th>
+<td>
+<input type="checkbox" class="item">
+<input type="number" class="qty" placeholder="Qty">
+<textarea class="spec"></textarea>
+</td>
+</tr>
+
+<tr>
+<th>Hair Clippers</th>
+<td>
+<input type="checkbox" class="item">
+<input type="number" class="qty" placeholder="Qty">
+<textarea class="spec"></textarea>
+</td>
+</tr>
+
+<tr>
+<th>Kettle</th>
+<td>
+<input type="checkbox" class="item">
+<input type="number" class="qty" placeholder="Qty">
+<textarea class="spec"></textarea>
+</td>
+</tr>
+
+</table>
+
+<div class="buttons">
+<button class="whatsapp-btn" onclick="sendOrder()">
+SEND ORDER ON WHATSAPP
+</button>
 </div>
 
 </div>
 
 <footer>
-© 2026 Smart Savings for Christians
+© 2026 Del Smiles Kitchen & Varieties
 </footer>
 
 <script>
-let users = JSON.parse(localStorage.getItem("ssc_users")) || [];
-let currentUser = null;
+function sendOrder(){
 
-function register() {
-  const name = rname.value;
-  const phone = rphone.value;
-  const password = rpassword.value;
+    let rows = document.querySelectorAll("table tr");
+    let message = "🛒 *NEW ORDER - DEL SMILES KITCHEN & VARIETIES*%0A%0A";
 
-  if(!name || !phone || !password){
-    alert("Fill all fields");
-    return;
-  }
+    rows.forEach(row => {
+        let item = row.querySelector(".item");
+        let qty = row.querySelector(".qty");
+        let spec = row.querySelector(".spec");
+        let name = row.querySelector("th");
 
-  users.push({
-    name,
-    phone,
-    password,
-    days: 0,
-    total: 0
-  });
+        if(item && item.checked){
+            let itemName = name.innerText;
+            let quantity = qty.value || "1";
+            let specValue = spec.value || "No specification";
 
-  localStorage.setItem("ssc_users", JSON.stringify(users));
-  alert("Registration successful");
-}
+            message += `✔ ${itemName}%0AQty: ${quantity}%0ASpec: ${specValue}%0A%0A`;
+        }
+    });
 
-function login() {
-  const phone = lphone.value;
-  const password = lpassword.value;
+    let phone = "2348067515299";
+    let url = `https://wa.me/${phone}?text=${message}`;
 
-  const user = users.find(u => u.phone === phone && u.password === password);
-  if(!user){
-    alert("Invalid login");
-    return;
-  }
-
-  currentUser = user;
-  dashboard.style.display = "block";
-  updateDashboard();
-}
-
-function updateDashboard(){
-  dname.innerText = currentUser.name;
-  ddays.innerText = currentUser.days;
-  dtotal.innerText = currentUser.total;
-}
-
-function payToday(){
-  currentUser.days += 1;
-  currentUser.total += 200;
-  localStorage.setItem("ssc_users", JSON.stringify(users));
-  updateDashboard();
-  alert("Payment marked for today");
+    window.open(url, "_blank");
 }
 </script>
 
